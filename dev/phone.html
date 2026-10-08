@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Garage app preview</title>
+    <!-- Browser preview only: frames web/phone/index.html at iPhone size.
+         ?theme=light, ?empty=1, ?offline=1 are passed through to the app. -->
+    <style>
+        body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; gap: 48px; background: #2b2d36; font-family: system-ui, sans-serif; }
+        .phone { position: relative; width: 390px; height: 844px; border-radius: 56px; padding: 12px; background: #0b0b0d; box-shadow: 0 0 0 2px #3a3a40, 0 40px 80px rgba(0,0,0,.5); }
+        .screen { position: relative; width: 100%; height: 100%; border-radius: 44px; overflow: hidden; background: #000; }
+        iframe { width: 100%; height: 100%; border: 0; display: block; }
+        .status { position: absolute; top: 0; left: 0; right: 0; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; font: 600 15px system-ui; color: var(--sc, #fff); pointer-events: none; z-index: 2; }
+        .island { position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 120px; height: 34px; border-radius: 20px; background: #000; z-index: 3; }
+        .home { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: var(--sc, #fff); opacity: .8; z-index: 3; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <div class="screen">
+            <div class="island"></div>
+            <div class="status"><span>9:41</span><span>●●● 100%</span></div>
+            <iframe id="app"></iframe>
+            <div class="home"></div>
+        </div>
+    </div>
+    <script>
+        const q = location.search;
+        document.getElementById('app').src = '../phone/index.html' + q;
+        if (new URLSearchParams(q).get('theme') === 'light') document.querySelector('.screen').style.setProperty('--sc', '#000');
+        window.__devLog = (...a) => console.log(...a);
+    </script>
+</body>
+</html>

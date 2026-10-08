@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Garage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap">
+    <link rel="stylesheet" href="phone.css">
+</head>
+<body>
+    <div id="app" class="app" data-state="loading">
+        <!-- list -->
+        <section id="home" class="screen home">
+            <header class="big-head">
+                <div>
+                    <h1>Garage</h1>
+                    <p id="summary">&nbsp;</p>
+                </div>
+                <button id="refresh" class="round" type="button" aria-label="Refresh"></button>
+            </header>
+            <div id="valet-banner" class="banner" hidden></div>
+            <label class="search">
+                <span id="search-icon"></span>
+                <input id="q" type="text" placeholder="Search" autocomplete="off" spellcheck="false">
+            </label>
+            <nav id="seg" class="seg"></nav>
+            <div id="list" class="list"></div>
+        </section>
+
+        <!-- one vehicle -->
+        <section id="detail" class="screen detail" hidden></section>
+
+        <div id="sheet" class="sheet-root"></div>
+        <div id="toast" class="toast" hidden></div>
+
+        <div class="splash">
+            <div class="splash-icon"><img src="../img/icon.svg" alt=""></div>
+            <p id="splash-text">Loading your vehicles…</p>
+            <button id="retry" class="btn primary" type="button">Try again</button>
+        </div>
+    </div>
+
+    <script src="phone.js"></script>
+</body>
+</html>
